@@ -25,7 +25,7 @@ def test_delete_attribute():
 
 def test_delete_inexistant_attribute():
     node = Node("Node01")
-    with pytest.raises(AttributeError):
+    with pytest.raises(RuntimeError):
         node.delete_attribute("output")
 
 

@@ -2,7 +2,7 @@ from shelob.core.attribute import Attribute
 
 
 class Node:
-    def __init__(self, name=None):
+    def __init__(self, name):
         self.name = name
         self._attributes = {}
 
@@ -14,17 +14,15 @@ class Node:
             )
         return attribute
 
-    def add_attribute(self, attribute_name):
-        if attribute_name in self._attributes:
-            raise RuntimeError(
-                f"Attribute {attribute_name} already exists on {self.name}"
-            )
-        attribute = Attribute(attribute_name)
-        self._attributes[attribute_name] = attribute
+    def add_attribute(self, name):
+        if name in self._attributes:
+            raise RuntimeError(f"Attribute {name} already exists on {self.name}")
+        attribute = Attribute(name)
+        self._attributes[name] = attribute
 
-    def delete_attribute(self, attribute_name):
-        if not attribute_name in self._attributes:
-            raise AttributeError("{self.name} has no attribute {attribute_name}")
+    def delete_attribute(self, name):
+        if not name in self._attributes:
+            raise RuntimeError("Node {self.name} has no attribute {name}")
 
-        del self._attributes[attribute_name]
+        del self._attributes[name]
 
