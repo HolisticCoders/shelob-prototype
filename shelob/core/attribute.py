@@ -54,7 +54,7 @@ class AttributeArray(AttributeBase):
         )
         self._attributes.append(new_attribute)
         return new_attribute
-    
+
     def remove_attribute(self, index):
         del self._attributes[index]
 
@@ -67,12 +67,3 @@ class AttributeType(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def validate(cls, value):
         pass
-
-
-class IntAttribute(AttributeType):
-    @classmethod
-    def validate(cls, value):
-        if isinstance(value, int):
-            return True
-        else:
-            return False
