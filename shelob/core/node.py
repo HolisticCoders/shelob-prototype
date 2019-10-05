@@ -14,15 +14,15 @@ class Node:
             )
         return attribute
 
-    def add_attribute(self, name):
+    def add_attribute(self, name, attribute_type):
         if name in self._attributes:
             raise RuntimeError(f"Attribute {name} already exists on {self.name}")
-        attribute = Attribute(name)
+        attribute = Attribute(name, attribute_type)
         self._attributes[name] = attribute
 
     def delete_attribute(self, name):
         if not name in self._attributes:
-            raise RuntimeError("Node {self.name} has no attribute {name}")
+            raise RuntimeError(f"Node {self.name} has no attribute {name}")
 
         del self._attributes[name]
 
