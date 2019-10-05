@@ -41,8 +41,8 @@ class AttributeArray(AttributeBase):
         super().__init__(name, attribute_type)
         self._attributes: List[Attribute] = []
 
-    def __getitem__(self, key):
-        return self._attributes[key]
+    def __getitem__(self, index):
+        return self._attributes[index]
 
     def __len__(self):
         return len(self._attributes)
